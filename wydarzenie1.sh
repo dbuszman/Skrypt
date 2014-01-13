@@ -5,12 +5,12 @@ black='\e[1;30;47m'
 black1='\e[1;32m'
 end_color='\e[0m'
 
-if [ ! -e ~/tmp/praca/zlecenia/niezrealizowane/wydarzenia.txt ];
+if [ ! -e ~/wydarzenia.txt ];
 then
-`touch ~/tmp/praca/zlecenia/niezrealizowane/wydarzenia.txt`
+`touch ~/wydarzenia.txt`
 fi
 
-licznik=$(wc -l ~/tmp/praca/zlecenia/niezrealizowane/wydarzenia.txt | cut -f 1 -d " ")
+licznik=$(wc -l ~/wydarzenia.txt | cut -f 1 -d " ")
 
 echo -e "${black1} Dodaj nazwę wydarzenia:${end_color}"
 read event
@@ -49,7 +49,7 @@ done
 
 licznik=$[$licznik+1]
 
-`printf "%s\n" "$licznik | $event | $date | $timer" >> ~/tmp/praca/zlecenia/niezrealizowane/wydarzenia.txt`
+`printf "%s\n" "$licznik | $event | $date | $timer" >> ~/wydarzenia.txt`
 echo -e "${black} Zapisano następujące wydarzenie:${end_color}"
 echo -e "${blue} $event, dnia $date, o $timer ${end_color}"
 exit 0
