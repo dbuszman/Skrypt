@@ -1,0 +1,4 @@
+Skrypt
+======
+
+Skrypt BASH - ZALICZENIE PRZEDMIOTU
