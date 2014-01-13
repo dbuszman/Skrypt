@@ -5,7 +5,7 @@ blue='\e[1;34m'
 black='\e[1;30;47m'
 end_color='\e[0m'
 
-licznik=$(wc -l ~/tmp/praca/zlecenia/niezrealizowane/wydarzenia.txt | cut -f 1 -d " ")
+licznik=$(wc -l ~/wydarzenia.txt | cut -f 1 -d " ")
 
 
 echo -e "${black} WYDARZENIA ${end_color}"
@@ -15,7 +15,7 @@ read wydarzenie
 
 if [ $wydarzenie -le $licznik ];
 then
-        event=`head -n $wydarzenie ./wydarzenia.txt | tail -n 1`
+        event=`head -n $wydarzenie ~/wydarzenia.txt | tail -n 1`
         number=`printf "$event" | cut -f 1 -d "|"`
         name=`printf "$event" | cut -f 2 -d "|"`
         date=`printf "$event" | cut -f 3 -d "|"`
@@ -32,7 +32,7 @@ else
                 if [ "$poprawka" == "y" ];
                 then
                         war1=1
-                        event=`tail -n 1 ./wydarzenia.txt`
+                        event=`tail -n 1 ~/wydarzenia.txt`
                         number=`printf "$event" | cut -f 1 -d "|"`
                         name=`printf "$event" | cut -f 2 -d "|"`
                         date=`printf "$event" | cut -f 3 -d "|"`
@@ -43,7 +43,7 @@ else
                         if [ $poprawka -le $licznik ] 
                         then
                                 war1=1
-                                event=`head -n $wydarzenie ./wydarzenia.txt | tail -n 1`
+                                event=`head -n $wydarzenie ~/wydarzenia.txt | tail -n 1`
                                 number=`printf "$event" | cut -f 1 -d "|"`
                                 name=`printf "$event" | cut -f 2 -d "|"`
                                 date=`printf "$event" | cut -f 3 -d "|"`
